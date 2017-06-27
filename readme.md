@@ -78,7 +78,7 @@ Your project has 3 required parts: the app, a README markdown file, and a presen
 
 ## Timeline
 
-### Tuesday - Project Proposals: Due Tomorrow 6/27! :calendar:
+### Tuesday - Project Proposals: Due Tonight 6/27! :calendar:
 * **Spend the evening coming up with ideas and making plans for your app.** By the end of the night, submit your project proposal!
 * All proposals should be in the form of an issue attached to this repository.
 * __Your proposal should include:__
@@ -92,16 +92,16 @@ Your project has 3 required parts: the app, a README markdown file, and a presen
     - A link to your repo!
 
 ### Wednesday:
-* **Short review of this unit!**
-* **Start Coding**
+* Short review of this unit!
+* Start Coding
 
 ### Thursday
 * __10AM__ - Outcomes checkin
-* **Work on your projects**
+* Work on your projects
 
 ### Friday
 * Lesson on Heroku and deployment
-* **Work on your projects**
+* Work on your projects
 
 ### Saturday - Tuesday
 * Work on and finish your projects
@@ -126,7 +126,7 @@ Your project has 3 required parts: the app, a README markdown file, and a presen
 
 ## Project Submission :mailbox_with_mail:
 
-Projects will be due **Monday June 12** at **11:00 PM**. To submit your project, create an issue on this repository including:
+Projects will be due **Tuesday July 4:us:** at **11:00 PM**. I know, its a holiday, so plan accordingly! Don't leave stuff for the last day! To submit your project, create an issue on this repository including:
 
 - A link to your project repo
 - A link to your Heroku page
