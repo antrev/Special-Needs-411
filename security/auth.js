@@ -1,9 +1,9 @@
 const passport = require('passport'),
     user = require('../models/user'),
-    LocalStorage = require('passport-local').Strategy,
+    LocalStrategy = require('passport-local').Strategy,
     bcrypt = require('bcrypt');
 
-const passportInstance = passport.Initialize();
+const passportInstance = passport.initialize();
 const passportSession = passport.session();
 
 function restrict(request, respond, next) {
@@ -28,7 +28,7 @@ passport.deserializeUser((userObj, done) => {
 }); //passport
 
 
-passport.use('local-signup', new localStrategy({
+passport.use('local-signup', new LocalStrategy({
         usernameFiled: 'user[email]',
         passwordField: 'user[password]',
         passReqToCallback: true
@@ -40,7 +40,7 @@ passport.use('local-signup', new localStrategy({
             });
     }));
 
-passport.use('local-signup', new localStrategy({
+passport.use('local-signup', new LocalStrategy({
                 usernameFiled: 'user[email]',
                 passwordFiled: 'user[password]',
                 passReqToCallback: true
@@ -59,8 +59,8 @@ passport.use('local-signup', new localStrategy({
                             return done(null, false);
                         }
                     });
-            } //req
-
+            }) //req
+);
 
 
 
