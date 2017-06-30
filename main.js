@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 
 const express = require('express'),
 	app = express(),
@@ -6,7 +6,7 @@ const express = require('express'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	cookieParser = require('cookie-parser'),
-	controller = require('./controller/login'),
+	controller = require('./controller/welcome'),
 	port = process.env.PORT || 8080;
 
 
@@ -23,9 +23,9 @@ const express = require('express'),
 	}));
 
 	//passport 
-	// const auth = require('./security/auth');
-	// app.use(auth.passportInstance);
-	// app.use(auth.passportSession);
+	const auth = require('./security/auth');
+	app.use(auth.passportInstance);
+	app.use(auth.passportSession);
 
 	app.use(bodyParser.urlencoded({ extended: false}));
 	app.use(cookieParser());

@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Schools 411</title>
+    <meta charset="UTF-8">
+    <title>Schools 411</title>
 </head>
+
 <body>
-	test
+    <section>
+        <h1>Welcome please sign in!</h1>
+        <form action="/user"  class="user_login" method="POST">
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="email@domain.com">
+            <br>
+            <label for="password">Password</label>
+            <input id="password" type="text" placeholder="password">
+            <br>
+            <button>Login</button>
+            <br>
+            <button> <a href="/newuser"/>Sign Up</a></button>
+        </form>
+    </section>
 </body>
+
 </html>

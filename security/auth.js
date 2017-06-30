@@ -20,47 +20,48 @@ passport.serializeUser((user, done) => {
 });
 
 
-// passport.deserializeUser((userObj, done) => {
-//     user.findByEmail(userObj.email)
-//     .then(user => {
-//             done(null, false);
-//         }); //user
-// }); //passport
+passport.deserializeUser((userObj, done) => {
+    user.findByEmail(userObj.email)
+        .then(user => {
+            done(null, false);
+        }); //user
+}); //passport
 
 
 passport.use('local-signup', new localStrategy({
+        usernameFiled: 'user[email]',
+        passwordField: 'user[password]',
+        passReqToCallback: true
+    },
+    (request, emil, password, done) => {
+        user.create(request.body.user)
+            .then((user) => {
+                return done(null, user);
+            });
+    }));
+
+passport.use('local-signup', new localStrategy({
                 usernameFiled: 'user[email]',
-                passwordField: 'user[password]',
+                passwordFiled: 'user[password]',
                 passReqToCallback: true
             },
-            (request, emil, password, done) => {
-                user.create(request.body.user);
-                .then((user) => {
-                    return done(null, user);
-                });
-            })
-);
-
-passport.use( 'local-signup', new localStrategy({
-	usernameFiled: 'user[email]',
-	passwordFiled: 'user[password]',
-	passReqToCallback: true
-},
-(request, email, password, done) => {
-	user.findByEmail(email)
-	.then((user) => {
-		const isAthued = bcrypt.compareSync(password, user.password_digest);
-		if (isAuthed){
-			return done(null, user);
-		} else {
-			return done(null, false);
-		} else{
-			return done(null, false);
-		}
-	})
-}
-
-);
+            (req, email, password, done) => {
+                user.findByEmail(email)
+                    .then((user) => {
+                        if (user) {
+                            const isAuthed = bcrypt.compareSync(password, user.password_digest);
+                            if (isAuthed) {
+                                return done(null, user);
+                            } else {
+                                return done(null, false);
+                            }
+                        } else {
+                            return done(null, false);
+                        }
+                    });
+            } //req
 
 
-module.exports = { passportInstance, passportSession, restrict };
+
+
+ module.exports = { passportInstance, passportSession, restrict };
