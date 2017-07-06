@@ -1,3 +1,106 @@
-body{
-	background-color: blue;
+/* css reset code */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
+
+body{
+	background-color: lightblue;
+}
+section{
+	text-align: center;
+	font-family: "Indie Flower";
+}
+
+a{
+	text-decoration: none;
+}
+h3{
+	font-size: 24px;
+}
+
+.welcome{
+	font-size: 56px;
+}
+.user_login{
+	display: inline-block;
+    position: relative;
+    top: 100px;
+}
+label[for=email]{
+	font-size: 24px;
+	margin: 25px;
+}
+label[for=password]{
+	font-size: 24px;
+}
+#login{
+	margin: 10px;
+    position: relative;
+    background-color: transparent;
+    width: 25vh;
+    height: 5vh;
+    left: 15%;
+}
+#signup{
+	background-color: transparent;
+    position: relative;
+    width: 25vh;
+    height: 5vh;
+    left: 15%;
+}
+/****** new user registration *******/
+#register{
+	font-size: 56px;
+}
+
+.user_register{
+	display: inline-block;
+    position: relative;
+    top: 100px;
+}
+
+label[for=new_email]{
+	font-size: 24px;
+	margin: 10px;
+}
+label[for=new_password]{
+	font-size: 24px;
+}
+#btn_reg{
+	margin: 10px;
+    position: relative;
+    background-color: transparent;
+    width: 25vh;
+    height: 5vh;
+    left: 7%;
+}
+
+/********* User *******/
+
+nav{
+	background-color: grey;
+	height: 50px;
+}
+#youtube{
+	margin: 10%;
+}
+
+
+

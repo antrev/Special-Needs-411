@@ -15,11 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "browser-sync": "^2.18.12",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
+    "morgan": "^1.8.2",
     "mustache-express": "^1.2.5",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

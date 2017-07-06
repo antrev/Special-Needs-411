@@ -1,14 +1,15 @@
-create table users (
-id serial primary key not null,
-email char,
-password_digets char
 
+
+CREATE TABLE users (
+  id BIGSERIAL PRIMARY KEY,
+  email VARCHAR NOT NULL UNIQUE,
+  password_digest VARCHAR NOT NULL
 );
 
-create table schools(
-name char,
-zipcode int,
-reviews char,
-schools_id int references users (id)
+create table parks(
+id serial primary key,
+name varchar not null,
+landuse varchar not null,
+park_id int references users (id)
 );
 

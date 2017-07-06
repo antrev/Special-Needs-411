@@ -2,8 +2,10 @@ require('dotenv').config();
 
 const express = require('express'),
 	app = express(),
+	logger = require('morgan'),
 	mustacheExpress = require('mustache-express'),
 	bodyParser = require('body-parser'),
+	passport = require('passport'),
 	session = require('express-session'),
 	cookieParser = require('cookie-parser'),
 	controller = require('./controller/welcome'),
@@ -27,10 +29,14 @@ const express = require('express'),
 	app.use(auth.passportInstance);
 	app.use(auth.passportSession);
 
-	app.use(bodyParser.urlencoded({ extended: false}));
+	app.use(bodyParser.urlencoded({ extended: true }));
+	app.use(bodyParser.json());
 	app.use(cookieParser());
 
+	app.use(logger('dev'));
+
 	app.use('/', controller);
+	 app.use('/user', auth.restrict, controller);
 
 
 	app.listen(port, () => console.log('Server listening on port', port));

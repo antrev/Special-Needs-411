@@ -1,28 +1,58 @@
 const router = require('express').Router(),
-	user = require('../models/user');
+    User = require('../models/user'),
+    passport = require('passport'),
+    auth = require('../security/auth');
 
 
-	//home page on load
-	router.get('/', (request, respond) => {
-		respond.render('welcome');
-	}); 
+//home page on load
+router.get('/', (request, respond) => {
+    respond.render('welcome');
+});
 
-	//login button
-	router.post('/', (request, respond) =>{
-		respond.send('user');
-	})
 
-	//signup
-	router.get('/newuser', (request, respond) =>{
-	respond.render('newuser');
+router.post('/user', passport.authenticate(
+    'local-login', {
+        failureRedirect: '/newuser',
+        successRedirect: '/user'
+    }
+));
+
+
+router.get(
+    '/user',
+    auth.restrict,
+    (req, res) => {
+        User
+            .findByEmail(req.params.email)
+            .then((user) => {
+                res.render(
+                    'user', { user: user }
+                );
+            })
+            .catch(err => console.log('ERROR:', err));
+    }
+);
+
+//register
+router.get('/newuser', (request, respond) => {
+    respond.render('newuser');
 })
 
-	//register
-	router.get('/user', (request, respond) => {
-		respond.render('user');
-	})
+router.post(
+    '/newuser', 
+    passport.authenticate(
+        'local-signup', {
+            failureRedirect: '/newuser',
+            successRedirect: '/user'
+        }
+    )
+    
+);
+
 
 	
 
 
-	module.exports = router;
+	
+
+module.exports = router;
